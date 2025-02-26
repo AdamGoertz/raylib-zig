@@ -2528,7 +2528,7 @@ pub fn drawTriangleStrip3D(points: []const Vector3, color: Color) void {
 }
 
 /// Internal memory allocator
-fn alloc(_: *anyopaque, len: usize, _: u8, _: usize) ?[*]u8 {
+fn alloc(_: *anyopaque, len: usize, _: std.mem.Alignment, _: usize) ?[*]u8 {
     std.debug.assert(len > 0);
     return @ptrCast(cdef.MemAlloc(@intCast(len)));
 }
